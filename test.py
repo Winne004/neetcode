@@ -5,6 +5,7 @@ from src.isAnagram import Solution as IsAnagramSolution
 from src.groupAnagrams import Solution as GroupedAnagramSolution
 from src.topKFrequent import Solution as GroupedTopKFrequentSolution
 from src.isPalindrome import Solution as IsPalindromeSolution
+from src.TwoSum import Solution as Is2SumSolution
 
 
 class Test(unittest.TestCase):
@@ -36,7 +37,17 @@ class Test(unittest.TestCase):
         s = "A man, a plan, a canal: Panama"
         expected_result = True
         result = IsPalindromeSolution.isPalindrome(self, s=s)
-        self.assertEqual(result,expected_result)
+        self.assertEqual(result, expected_result)
+
+        result = IsPalindromeSolution.isPalindrome2(self, s=s)
+        self.assertEqual(result, expected_result)
+
+    def test_twoSum(self):
+        tests = [([2, 7, 11, 15], 9, [1,2]), ([2, 3, 4], 6, [1,3]), ([-1, 0], -1, [1,2])]
+        for test, target, expected_result in tests:
+            result = Is2SumSolution.twoSum(self, test, target)
+            self.assertEqual(result, expected_result)
+
 
 if __name__ == "__main__":
     unittest.main()
